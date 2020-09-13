@@ -4,6 +4,21 @@
 
 **Note: Accurate results require highly non-planar motions, this makes the technique poorly suited for calibrating sensors mounted to cars.**
 
+Bugs solved myself:
+
+Error 1: conflicting declaration ‘typedef struct LZ4_stream_t LZ4_stream_t’
+Results: "The problem is that when you install ros you get two separate and incompatible versions of LZ4. One is used by ros for serialization and the other by the flann kdtree in pcl. "
+Solutions: (for Ubuntu-18.04/ROS-melodic)
+sudo mv /usr/include/flann/ext/lz4.h /usr/include/flann/ext/lz4.h.bak
+sudo mv /usr/include/flann/ext/lz4hc.h /usr/include/flann/ext/lz4.h.bak
+sudo ln -s /usr/include/lz4.h /usr/include/flann/ext/lz4.h
+sudo ln -s /usr/include/lz4hc.h /usr/include/flann/ext/lz4hc.h
+See: https://github.com/ethz-asl/lidar_align/issues/16
+
+
+Error 2: By not providing "FindNLOPT.cmake" in CMAKE_MODULE_PATH this project has asked CMake to find a package configuration file provided by "NLOPT", but CMake did not find one.
+Solutions: Move "NLOPTConfig.cmake" file to `src directory.
+
 The method makes use of the property that pointclouds from lidars appear more 'crisp' when the calibration is correct. It does this as follows:
 1) A transformation between the lidar and pose sensor is set.
 2) The poses are used in combination with the above transformation to fuse all the lidar points into a single pointcloud.

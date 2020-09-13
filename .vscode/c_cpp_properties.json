@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/larry/lidar_ws/devel/include/**",
+                "/opt/ros/melodic/include/**",
+                "/home/larry/lidar_ws/src/lslidar/imu_driver/include/**",
+                "/home/larry/lidar_ws/src/lidar_align/include/**",
+                "/home/larry/lidar_ws/src/lslidar/lslidar_c32_decoder/include/**",
+                "/home/larry/lidar_ws/src/lslidar/lslidar_c32_driver/include/**",
+                "/home/larry/lidar_ws/src/pclEx/include/**",
+                "/home/larry/lidar_ws/src/lslidar/pointcloud_receiver/include/**",
+                "/home/larry/lidar_ws/src/lslidar/lidar_align/include/**",
+                "/usr/include/**"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++14"
+        }
+    ],
+    "version": 4
+}
