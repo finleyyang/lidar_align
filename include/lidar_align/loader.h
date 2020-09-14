@@ -15,13 +15,13 @@ public:
     struct Config{      //~ Config is a struct, only has one member `use_n_scans, default: maximum.
         int use_n_scans = std::numeric_limits<int>::max();
     };
-
     Loader(const Config &config);
     void parsePointcloudMsg(const sensor_msgs::PointCloud2 msg, LoaderPointcloud *pointcloud);
     bool loadPointcloudFromROSBag(const std::string &bag_path, const Scan::Config &scan_config, Lidar *lidar);
     bool loadTformFromROSBag(const std::string &bag_path, Odom *odom);
     bool loadTformFromMaplabCSV(const std::string &csv_path, Odom *odom);
     static Config getConfig(ros::NodeHandle *nh);
+
 private:
     static bool getNextCSVTransform(std::istream &str, Timestamp *stamp, Transform *T);
     Config config_;

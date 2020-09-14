@@ -31,7 +31,7 @@ public:
         std::string output_calibration_path = "";
     };
 
-    struct OptData{     //~ optimize data?
+    struct OptData{     //~ optimize data
         Lidar *lidar;
         Odom *odom;
         Aligner *aligner;

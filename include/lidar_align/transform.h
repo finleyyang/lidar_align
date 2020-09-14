@@ -6,8 +6,10 @@
 namespace lidar_align
 {
 
-class Transform
-{
+
+//~ defined some operations for transformation, when interp,
+class Transform{
+
 public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
