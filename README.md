@@ -5,23 +5,27 @@
 **Note: Accurate results require highly non-planar motions, this makes the technique poorly suited for calibrating sensors mounted to cars.**
 
 ------------------------------------------------------------------------------------------------------
-Record by myself:
+**Some errors may occur and solutions are recorded by myself**
 
-Error 1: conflicting declaration ‘typedef struct LZ4_stream_t LZ4_stream_t’
+**Error 1**: conflicting declaration ‘typedef struct LZ4_stream_t LZ4_stream_t’
 Results: "The problem is that when you install ros you get two separate and incompatible versions of LZ4. One is used by ros for serialization and the other by the flann kdtree in pcl. "
+
 Solutions: (for Ubuntu-18.04/ROS-melodic)
+```bash
 sudo mv /usr/include/flann/ext/lz4.h /usr/include/flann/ext/lz4.h.bak
 sudo mv /usr/include/flann/ext/lz4hc.h /usr/include/flann/ext/lz4.h.bak
 sudo ln -s /usr/include/lz4.h /usr/include/flann/ext/lz4.h
 sudo ln -s /usr/include/lz4hc.h /usr/include/flann/ext/lz4hc.h
-See: https://github.com/ethz-asl/lidar_align/issues/16
+```
+See also: [Issue Here](https://github.com/ethz-asl/lidar_align/issues/16)
 
-Error 2: By not providing "FindNLOPT.cmake" in CMAKE_MODULE_PATH this project has asked CMake to find a package configuration file provided by "NLOPT", but CMake did not find one.
-Solutions: Move "NLOPTConfig.cmake" file to `src directory.
 
-Test: Use examples.bag to test the environment is correct.
-https://drive.google.com/open?id=11fUwbVnvej4NZ_0Mntk7XJ2YrZ5Dk3Ub
-(Issue from: https://github.com/ethz-asl/lidar_align/issues/5#issuecomment-442766071)
+**Error 2**: By not providing "FindNLOPT.cmake" in CMAKE_MODULE_PATH this project has asked CMake to find a package configuration file provided by "NLOPT", but CMake did not find one.
+Solutions: Move "NLOPTConfig.cmake" file to \`src directory.
+
+Test: Use [examples.bag](https://drive.google.com/open?id=11fUwbVnvej4NZ_0Mntk7XJ2YrZ5Dk3Ub) to test the environment is correct.
+
+See also: [Issue Here](https://github.com/ethz-asl/lidar_align/issues/5#issuecomment-442766071)
 
 
 ------------------------------------------------------------------------------------------------------
