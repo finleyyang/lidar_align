@@ -1,6 +1,7 @@
 #include <geometry_msgs/TransformStamped.h>
 #include <rosbag/bag.h>
 #include <rosbag/view.h>
+#include <sensor_msgs/Imu.h>
 
 #include "lidar_align/loader.h"
 #include "lidar_align/transform.h"
